@@ -35,16 +35,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24f077503be6ae942a1e1245dbd53ea9, type: 3}
   m_Name: Bloom
   m_EditorClassIdentifier: 
-  active: 0
+  active: 1
   m_AdvancedMode: 1
   intensity:
     m_OverrideState: 1
-    m_Value: 0
+    m_Value: 0.34
     min: 0
     max: 1
   scatter:
     m_OverrideState: 1
-    m_Value: 0
+    m_Value: 0.73
     min: 0
     max: 1
   tint:
@@ -134,6 +134,7 @@ MonoBehaviour:
   - {fileID: 2919064859649830734}
   - {fileID: -3401580081991318484}
   - {fileID: 898562925429731731}
+  - {fileID: 4041688130705356764}
 --- !u!114 &898562925429731731
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -245,6 +246,50 @@ MonoBehaviour:
     max: 1
   enableDistantFog:
     m_OverrideState: 1
+    m_Value: 0
+--- !u!114 &4041688130705356764
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ddcec8a8eb2d684d833ac8f5d26aebd, type: 3}
+  m_Name: HDShadowSettings
+  m_EditorClassIdentifier: 
+  active: 1
+  m_AdvancedMode: 0
+  maxShadowDistance:
+    m_OverrideState: 1
+    m_Value: 500
+    min: 0
+  cascadeShadowSplitCount:
+    m_OverrideState: 0
+    m_Value: 4
+    min: 1
+    max: 4
+  cascadeShadowSplit0:
+    m_OverrideState: 0
+    m_Value: 0.05
+  cascadeShadowSplit1:
+    m_OverrideState: 0
+    m_Value: 0.15
+  cascadeShadowSplit2:
+    m_OverrideState: 0
+    m_Value: 0.3
+  cascadeShadowBorder0:
+    m_OverrideState: 0
+    m_Value: 0
+  cascadeShadowBorder1:
+    m_OverrideState: 0
+    m_Value: 0
+  cascadeShadowBorder2:
+    m_OverrideState: 0
+    m_Value: 0
+  cascadeShadowBorder3:
+    m_OverrideState: 0
     m_Value: 0
 --- !u!114 &8264323053627730686
 MonoBehaviour:
