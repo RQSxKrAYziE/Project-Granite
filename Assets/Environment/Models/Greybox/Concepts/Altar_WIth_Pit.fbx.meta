@@ -1,0 +1,201 @@
+fileFormatVersion: 2
+guid: f5666d8ecbad0134c91c75c523f76f1a
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: brick
+    100004: brick1
+    100006: brick10
+    100008: brick11
+    100010: brick12
+    100012: brick3
+    100014: brick4
+    100016: brick5
+    100018: brick6
+    100020: brick7
+    100022: brick8
+    100024: brick9
+    100026: bricks
+    100028: floor
+    100030: hole
+    100032: holepillar
+    100034: holepillar1
+    100036: pCube10
+    100038: pCube12
+    100040: platform
+    100042: railling
+    100044: railling1
+    100046: Upway
+    100048: upways
+    400000: //RootNode
+    400002: brick
+    400004: brick1
+    400006: brick10
+    400008: brick11
+    400010: brick12
+    400012: brick3
+    400014: brick4
+    400016: brick5
+    400018: brick6
+    400020: brick7
+    400022: brick8
+    400024: brick9
+    400026: bricks
+    400028: floor
+    400030: hole
+    400032: holepillar
+    400034: holepillar1
+    400036: pCube10
+    400038: pCube12
+    400040: platform
+    400042: railling
+    400044: railling1
+    400046: Upway
+    400048: upways
+    2100000: lambert1
+    2300000: brick
+    2300002: brick1
+    2300004: brick10
+    2300006: brick11
+    2300008: brick12
+    2300010: brick3
+    2300012: brick4
+    2300014: brick5
+    2300016: brick6
+    2300018: brick7
+    2300020: brick8
+    2300022: brick9
+    2300024: floor
+    2300026: holepillar
+    2300028: holepillar1
+    2300030: pCube10
+    2300032: pCube12
+    2300034: platform
+    2300036: railling
+    2300038: railling1
+    2300040: upways
+    3300000: brick
+    3300002: brick1
+    3300004: brick10
+    3300006: brick11
+    3300008: brick12
+    3300010: brick3
+    3300012: brick4
+    3300014: brick5
+    3300016: brick6
+    3300018: brick7
+    3300020: brick8
+    3300022: brick9
+    3300024: floor
+    3300026: holepillar
+    3300028: holepillar1
+    3300030: pCube10
+    3300032: pCube12
+    3300034: platform
+    3300036: railling
+    3300038: railling1
+    3300040: upways
+    4300000: platform
+    4300002: holepillar
+    4300004: holepillar1
+    4300006: railling
+    4300008: upways
+    4300010: railling1
+    4300012: pCube10
+    4300014: brick
+    4300016: brick1
+    4300018: brick3
+    4300020: brick4
+    4300022: brick5
+    4300024: brick6
+    4300026: brick7
+    4300028: brick8
+    4300030: brick9
+    4300032: brick10
+    4300034: brick11
+    4300036: brick12
+    4300038: floor
+    4300040: pCube12
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
