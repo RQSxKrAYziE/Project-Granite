@@ -5,6 +5,7 @@ using UnityEngine;
 public class Attack : MonoBehaviour {
 
     private Pickup pickupScript;
+    private PlayerMovement movementScript;
     private float attackDist = 3;
     [SerializeField] private Camera MainCamera;
     public int fistDamage;
@@ -13,14 +14,25 @@ public class Attack : MonoBehaviour {
 
 	void Awake () {
         pickupScript = GetComponent<Pickup>();
+        movementScript = GetComponent<PlayerMovement>();
         rightDamage = leftDamage = fistDamage;
 	}
 	
 	void Update () {
-        if (Input.GetKeyDown(KeyCode.Mouse0)) //Left Click
-            AttackEnemy(leftDamage);
-        if (Input.GetKeyDown(KeyCode.Mouse1)) //RightClick
-            AttackEnemy(rightDamage);
+        if (Input.GetKeyDown(KeyCode.Mouse0)) {//Left Click
+            if (movementScript.dashing) {
+                StartCoroutine(DashPunch(leftDamage * 2));
+            } else {
+                AttackEnemy(leftDamage);
+            }
+        }
+        if (Input.GetKeyDown(KeyCode.Mouse1)) {//RightClick
+            if (movementScript.dashing) {
+                StartCoroutine(DashPunch(rightDamage * 2));
+            } else {
+                AttackEnemy(rightDamage);
+            }
+        }
 	}
 
     public void ResetDamage() {
@@ -39,5 +51,10 @@ public class Attack : MonoBehaviour {
                 }
             }
         }
+    }
+
+    IEnumerator DashPunch(int damage) {
+        yield return new WaitUntil(() => movementScript.dashing == false);
+        Debug.Log("Dash Punch");
     }
 }
