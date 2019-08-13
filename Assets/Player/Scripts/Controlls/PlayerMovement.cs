@@ -60,7 +60,7 @@ public class PlayerMovement : MonoBehaviour {
         rb.AddRelativeForce(direction * dashSpeed * Time.deltaTime);
         yield return new WaitForSeconds(0.2f);
         dashing = false;
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.1f);
         stopDash = false;
     }
 
