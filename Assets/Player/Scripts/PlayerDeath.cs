@@ -12,17 +12,18 @@ public class PlayerDeath : MonoBehaviour {
     [SerializeField] Text punches;
     [SerializeField] Text punchEfficancy;
 
+
     public void killPlayer()
     {
         PlayerManager.alive = false;
         deathScreen.SetActive(true);
         Cursor.lockState = CursorLockMode.None;
-
+        GetComponent<Rigidbody>().velocity = Vector3.zero;
         //set stats
         timeAlive.text = "Seconds Survived: " + PlayerManager.SecondsPlayerAlive;
         kills.text = "Things you punched: " + PlayerManager.enemiesPlayerKilled;
-        punches.text = "Times you punched: " + PlayerManager.timesPlayerPunched;
-        punchEfficancy.text = "Punch Efficancy Rating: " + (float)  PlayerManager.enemiesPlayerKilled / PlayerManager.timesPlayerPunched * 100 + "%";
+        //punches.text = "Times you punched: " + PlayerManager.timesPlayerPunched;
+        //punchEfficancy.text = "Punch Efficancy Rating: " + (float)  PlayerManager.enemiesPlayerKilled / PlayerManager.timesPlayerPunched * 100 + "%";
 
         PlayerManager.ResetStats();
     }

@@ -12,7 +12,9 @@ public class EnemyDeathScript : MonoBehaviour {
     }
 
     private void CheckHealth() {
-        if (health <= 0)
+        if (health <= 0) {
+            PlayerManager.enemiesPlayerKilled++;
             Destroy(gameObject);
+        }
     }
 }

@@ -19,6 +19,7 @@ public class Attack : MonoBehaviour {
 	}
 	
 	void Update () {
+        if(!PlayerManager.alive) { return; }
         if (Input.GetKeyDown(KeyCode.Mouse0)) {//Left Click
             if (movementScript.dashing) {
                 StartCoroutine(DashPunch(leftDamage * 2));

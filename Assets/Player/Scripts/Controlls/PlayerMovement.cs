@@ -28,7 +28,7 @@ public class PlayerMovement : MonoBehaviour {
     }
 
     private void FixedUpdate() {
-        if (dashing) { return; }
+        if (dashing || !PlayerManager.alive) { return; }
         //Max Speed
         horizontalMovement = new Vector2(rb.velocity.x, rb.velocity.z);
         if (horizontalMovement.magnitude > maxSpeed)  {
@@ -65,7 +65,7 @@ public class PlayerMovement : MonoBehaviour {
     }
 
     private void Update() {
-        if (dashing) { return; }
+        if (dashing || !PlayerManager.alive) { return; }
         //Jump
         if (Input.GetButtonDown(Axis.JUMP) && grounded) {
             rb.AddForce(0, jumpForce, 0);

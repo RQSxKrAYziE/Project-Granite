@@ -36,6 +36,10 @@ public class EnemyAI : MonoBehaviour{
     }
 
     private void Update() {
+        if (!PlayerManager.alive) {
+            agent.isStopped = true;
+            return;
+        }
         MonitorStates();
         if (everyFrame != null)
             everyFrame();
