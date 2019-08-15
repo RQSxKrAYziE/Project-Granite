@@ -24,6 +24,7 @@ public class Attack : MonoBehaviour {
             if (movementScript.dashing) {
                 StartCoroutine(DashPunch(leftDamage * 2));
             } else {
+                GetComponent<Animator>().SetTrigger(Animation.LEFT_PUNCH);
                 AttackEnemy(leftDamage);
             }
         }
@@ -31,6 +32,7 @@ public class Attack : MonoBehaviour {
             if (movementScript.dashing) {
                 StartCoroutine(DashPunch(rightDamage * 2));
             } else {
+                GetComponent<Animator>().SetTrigger(Animation.RIGHT_PUNCH);
                 AttackEnemy(rightDamage);
             }
         }

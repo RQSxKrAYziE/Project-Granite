@@ -52,6 +52,12 @@ public class PlayerMovement : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.LeftShift) && grounded && !stopDash) {
             StartCoroutine(Dash(new Vector3(Input.GetAxis(Axis.HORIZONTAL), 0, Input.GetAxis(Axis.VERTICAL))));
         }
+        //Animation
+        if(rb.velocity != Vector3.zero) {
+            GetComponent<Animator>().SetBool(Animation.WALKING, true);
+        } else {
+            GetComponent<Animator>().SetBool(Animation.WALKING, false);
+        }
     }
 
     private IEnumerator Dash(Vector3 direction) {
