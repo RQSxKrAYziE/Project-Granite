@@ -29,6 +29,13 @@ public class EnemyAI : MonoBehaviour{
 
     NavMeshAgent agent;
 
+    void ResetAI()
+    {
+        agent.isStopped = false;
+        aiState = AIState.idle;
+        ChangeState(AIState.idle);
+    }
+
     private void Start() {
         agent = GetComponent<NavMeshAgent>();
         aiState = AIState.idle;
@@ -130,6 +137,7 @@ public class EnemyAI : MonoBehaviour{
         FindDirection(playerTarget);
         RotateTowardsTarget();
         MoveToPosition(playerTarget.position);
+        agent.isStopped = false;
     }
 
     void DistanceCheck(Transform target) {

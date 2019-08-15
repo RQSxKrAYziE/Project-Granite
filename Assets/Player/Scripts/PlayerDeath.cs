@@ -12,6 +12,12 @@ public class PlayerDeath : MonoBehaviour {
     [SerializeField] Text punches;
     [SerializeField] Text punchEfficancy;
 
+    private void Update() {
+        if (Input.GetKeyDown(KeyCode.R)) {
+            respawnPlayer();
+        }
+    }
+
 
     public void killPlayer()
     {
