@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerDeath : MonoBehaviour {
 
@@ -14,8 +15,11 @@ public class PlayerDeath : MonoBehaviour {
 
     private void Update() {
         if (Input.GetKeyDown(KeyCode.R)) {
-            respawnPlayer();
+            PlayerManager.alive = true;
+            SceneManager.LoadScene(0);
         }
+        if (Input.GetKeyDown(KeyCode.Escape))
+            Application.Quit();
     }
 
 

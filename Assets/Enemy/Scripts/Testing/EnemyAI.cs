@@ -29,13 +29,6 @@ public class EnemyAI : MonoBehaviour{
 
     NavMeshAgent agent;
 
-    void ResetAI()
-    {
-        agent.isStopped = false;
-        aiState = AIState.idle;
-        ChangeState(AIState.idle);
-    }
-
     private void Start() {
         agent = GetComponent<NavMeshAgent>();
         aiState = AIState.idle;

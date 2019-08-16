@@ -33,6 +33,7 @@ public class MouseLook : MonoBehaviour {
 
 	void Start () {
         Cursor.lockState = CursorLockMode.Locked;
+        Application.targetFrameRate = 60;
 	}
 	
 	void Update () {
