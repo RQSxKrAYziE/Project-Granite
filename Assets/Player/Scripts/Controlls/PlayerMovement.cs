@@ -44,7 +44,7 @@ public class PlayerMovement : MonoBehaviour {
         }
         //Movement
         if (grounded) {
-            rb.AddRelativeForce(Input.GetAxis(Axis.HORIZONTAL) * accel * Time.deltaTime, 0, Input.GetAxis(Axis.VERTICAL) * accel * Time.deltaTime);
+            rb.AddRelativeForce(Input.GetAxis(Axis.HORIZONTAL) * accel * Time.deltaTime, 0, Input.GetAxis(Axis.VERTICAL) * accel * Time.deltaTime, ForceMode.VelocityChange);
         } else {
             rb.AddRelativeForce(Input.GetAxis(Axis.HORIZONTAL) * accel * airAccel * Time.deltaTime, 0, Input.GetAxis(Axis.VERTICAL) * accel * airAccel * Time.deltaTime);
         }
@@ -63,7 +63,7 @@ public class PlayerMovement : MonoBehaviour {
     private IEnumerator Dash(Vector3 direction) {
         dashing = true;
         stopDash = true;
-        rb.AddRelativeForce(direction * dashSpeed * Time.deltaTime);
+        rb.AddRelativeForce(direction * dashSpeed * Time.deltaTime, ForceMode.VelocityChange);
         yield return new WaitForSeconds(0.2f);
         dashing = false;
         yield return new WaitForSeconds(0.1f);

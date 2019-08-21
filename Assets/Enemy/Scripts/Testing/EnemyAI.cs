@@ -130,7 +130,6 @@ public class EnemyAI : MonoBehaviour{
         FindDirection(playerTarget);
         RotateTowardsTarget();
         MoveToPosition(playerTarget.position);
-        agent.isStopped = false;
     }
 
     void DistanceCheck(Transform target) {
