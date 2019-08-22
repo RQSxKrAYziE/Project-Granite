@@ -36,6 +36,7 @@ public class EnemyAI : MonoBehaviour{
     }
 
     private void Update() {
+        if (GetComponent<EnemyDeathScript>().dead) { return; }
         if (!PlayerManager.alive) {
             agent.isStopped = true;
             return;

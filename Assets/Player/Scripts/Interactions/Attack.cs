@@ -47,7 +47,7 @@ public class Attack : MonoBehaviour {
     }
 
     void AttackEnemy(int damage, GameObject enemy) {
-        StartCoroutine(enemy.GetComponent<EnemyDeathScript>().DealDamage(damage));
+        enemy.GetComponent<EnemyDeathScript>().DealDamage(damage);
         
         /*float x = Screen.width / 2;
         float y = Screen.height / 2;

@@ -6,27 +6,36 @@ using UnityEngine.AI;
 public class EnemyDeathScript : MonoBehaviour {
 
     [SerializeField] Transform player;
-    [SerializeField] Transform ragdoll;
+    [SerializeField] GameObject ragdoll;
     [SerializeField] float force;
     private NavMeshAgent agent;
     private Vector3 direction;
-    private bool hit;
+    private float maxSlope = 60;
     private bool grounded = false;
+    private bool hit = false;
+    [HideInInspector] public bool dead = false;
     public int health = 50;
 
     private void Start() {
         agent = GetComponent<NavMeshAgent>();
     }
 
-    public IEnumerator DealDamage(int damage) {
+    public void DealDamage(int damage) {
+        Debug.Log("Attack");
+        health = health - damage;
+        CheckHealth();
+        if (!hit) {
+            StartCoroutine(Force());
+        }
+    }
+
+    IEnumerator Force() {
         hit = true;
         agent.enabled = false;
         direction = player.position - transform.position;
         direction = -direction.normalized;
         GetComponent<Rigidbody>().AddForce(direction.x * force, force / 2, direction.z * force);
-        Debug.Log("Attack");
-        health = health - damage;
-        CheckHealth();
+        yield return new WaitUntil(() => grounded == false);
         yield return new WaitUntil(() => grounded == true);
         hit = false;
     }
@@ -40,7 +49,12 @@ public class EnemyDeathScript : MonoBehaviour {
     }
 
     void Ragdoll() {
-
+        dead = true;
+        agent.enabled = false;
+        GetComponent<CapsuleCollider>().enabled = false;
+        GetComponent<EnemyAI>().enabled = false;
+        GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
+        ragdoll.SetActive(true);
     }
 
     private void OnCollisionExit(Collision collision) {
@@ -48,7 +62,12 @@ public class EnemyDeathScript : MonoBehaviour {
     }
 
     private void OnCollisionStay(Collision collision) {
-        grounded = true;
+        if (collision.gameObject.tag == Tags.PLAYER || dead) { return; }
+        foreach (ContactPoint contact in collision.contacts) {
+            if(Vector3.Angle(contact.normal, Vector3.up) < maxSlope) {
+                grounded = true;
+            }
+        }
         if (hit)
             return;
         else
