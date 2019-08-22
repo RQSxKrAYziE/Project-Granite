@@ -30,4 +30,5 @@ public class Animation {
     public const string WALKING = "Walking";
     public const string RIGHT_PUNCH = "Right Attack";
     public const string LEFT_PUNCH = "Left Attack";
+    public const string ENEMY_ATTACK = "EnemyAttack";
 }
