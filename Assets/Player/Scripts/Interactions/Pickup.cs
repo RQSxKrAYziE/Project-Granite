@@ -18,6 +18,7 @@ public class Pickup : MonoBehaviour {
     }
 
     private void Update() {
+        if (!PlayerManager.alive) { return; }
         if (rightHandWeapon != null || leftHandWeapon != null) {
             CheckThrow();
         }

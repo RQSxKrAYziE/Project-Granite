@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerDeath : MonoBehaviour {
 
@@ -12,17 +13,27 @@ public class PlayerDeath : MonoBehaviour {
     [SerializeField] Text punches;
     [SerializeField] Text punchEfficancy;
 
+    private void Update() {
+        if (Input.GetKeyDown(KeyCode.R)) {
+            PlayerManager.alive = true;
+            SceneManager.LoadScene(0);
+        }
+        if (Input.GetKeyDown(KeyCode.Escape))
+            Application.Quit();
+    }
+
+
     public void killPlayer()
     {
         PlayerManager.alive = false;
         deathScreen.SetActive(true);
         Cursor.lockState = CursorLockMode.None;
-
+        GetComponent<Rigidbody>().velocity = Vector3.zero;
         //set stats
         timeAlive.text = "Seconds Survived: " + PlayerManager.SecondsPlayerAlive;
         kills.text = "Things you punched: " + PlayerManager.enemiesPlayerKilled;
-        punches.text = "Times you punched: " + PlayerManager.timesPlayerPunched;
-        punchEfficancy.text = "Punch Efficancy Rating: " + (float)  PlayerManager.enemiesPlayerKilled / PlayerManager.timesPlayerPunched * 100 + "%";
+        //punches.text = "Times you punched: " + PlayerManager.timesPlayerPunched;
+        //punchEfficancy.text = "Punch Efficancy Rating: " + (float)  PlayerManager.enemiesPlayerKilled / PlayerManager.timesPlayerPunched * 100 + "%";
 
         PlayerManager.ResetStats();
     }

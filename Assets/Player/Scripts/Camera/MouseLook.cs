@@ -33,9 +33,11 @@ public class MouseLook : MonoBehaviour {
 
 	void Start () {
         Cursor.lockState = CursorLockMode.Locked;
+        Application.targetFrameRate = 60;
 	}
 	
 	void Update () {
+        if (!PlayerManager.alive) { return; }
         LockAndUnlockCursor();
         if (Cursor.lockState == CursorLockMode.Locked) {
             LookAround();

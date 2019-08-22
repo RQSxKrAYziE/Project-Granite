@@ -10,9 +10,13 @@ public class PlayerMovement : MonoBehaviour {
     [SerializeField] private float maxSpeed = 20;
     [SerializeField] private float jumpForce = 800;
     [SerializeField] private float maxSlope = 60;
+    [SerializeField] private float dashSpeed = 6000;
+    public bool dashing = false;
+    public bool frontDash = false;
+    private bool stopDash = false;
     private Rigidbody rb;
     private Vector2 horizontalMovement;
-    [SerializeField] private bool grounded = false;
+    private bool grounded = false;
     private float deccelX = 0;
     private float deccelZ = 0;
 
@@ -24,6 +28,7 @@ public class PlayerMovement : MonoBehaviour {
     }
 
     private void FixedUpdate() {
+        if (dashing || !PlayerManager.alive) { return; }
         //Max Speed
         horizontalMovement = new Vector2(rb.velocity.x, rb.velocity.z);
         if (horizontalMovement.magnitude > maxSpeed)  {
@@ -39,13 +44,34 @@ public class PlayerMovement : MonoBehaviour {
         }
         //Movement
         if (grounded) {
-            rb.AddRelativeForce(Input.GetAxis(Axis.HORIZONTAL) * accel * Time.deltaTime, 0, Input.GetAxis(Axis.VERTICAL) * accel * Time.deltaTime);
+            rb.AddRelativeForce(Input.GetAxis(Axis.HORIZONTAL) * accel * Time.deltaTime, 0, Input.GetAxis(Axis.VERTICAL) * accel * Time.deltaTime, ForceMode.VelocityChange);
         } else {
             rb.AddRelativeForce(Input.GetAxis(Axis.HORIZONTAL) * accel * airAccel * Time.deltaTime, 0, Input.GetAxis(Axis.VERTICAL) * accel * airAccel * Time.deltaTime);
         }
+        //Dash
+        if (Input.GetKeyDown(KeyCode.LeftShift) && grounded && !stopDash) {
+            StartCoroutine(Dash(new Vector3(Input.GetAxis(Axis.HORIZONTAL), 0, Input.GetAxis(Axis.VERTICAL))));
+        }
+        //Animation
+        if(rb.velocity != Vector3.zero) {
+            GetComponent<Animator>().SetBool(Animation.WALKING, true);
+        } else {
+            GetComponent<Animator>().SetBool(Animation.WALKING, false);
+        }
+    }
+
+    private IEnumerator Dash(Vector3 direction) {
+        dashing = true;
+        stopDash = true;
+        rb.AddRelativeForce(direction * dashSpeed * Time.deltaTime, ForceMode.VelocityChange);
+        yield return new WaitForSeconds(0.2f);
+        dashing = false;
+        yield return new WaitForSeconds(0.1f);
+        stopDash = false;
     }
 
     private void Update() {
+        if (dashing || !PlayerManager.alive) { return; }
         //Jump
         if (Input.GetButtonDown(Axis.JUMP) && grounded) {
             rb.AddForce(0, jumpForce, 0);

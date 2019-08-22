@@ -5,6 +5,7 @@ using UnityEngine;
 public class Attack : MonoBehaviour {
 
     private Pickup pickupScript;
+    private PlayerMovement movementScript;
     private float attackDist = 3;
     [SerializeField] private Camera MainCamera;
     public int fistDamage;
@@ -13,22 +14,42 @@ public class Attack : MonoBehaviour {
 
 	void Awake () {
         pickupScript = GetComponent<Pickup>();
+        movementScript = GetComponent<PlayerMovement>();
         rightDamage = leftDamage = fistDamage;
 	}
-	
-	void Update () {
-        if (Input.GetKeyDown(KeyCode.Mouse0)) //Left Click
-            AttackEnemy(leftDamage);
-        if (Input.GetKeyDown(KeyCode.Mouse1)) //RightClick
-            AttackEnemy(rightDamage);
+
+    private void Update() {
+        if(Input.GetKeyDown(KeyCode.Mouse0))
+            GetComponent<Animator>().SetTrigger(Animation.LEFT_PUNCH);
+        if(Input.GetKeyDown(KeyCode.Mouse1))
+            GetComponent<Animator>().SetTrigger(Animation.RIGHT_PUNCH);
+    }
+
+    void CheckAttack (GameObject enemy) {
+        if (Input.GetKeyDown(KeyCode.Mouse0)) {//Left Click
+            if (movementScript.dashing) {
+                StartCoroutine(DashPunch(leftDamage * 2));
+            } else {
+                AttackEnemy(leftDamage, enemy);
+            }
+        }
+        if (Input.GetKeyDown(KeyCode.Mouse1)) {//RightClick
+            if (movementScript.dashing) {
+                StartCoroutine(DashPunch(rightDamage * 2));
+            } else {
+                AttackEnemy(rightDamage, enemy);
+            }
+        }
 	}
 
     public void ResetDamage() {
         rightDamage = leftDamage = fistDamage;
     }
 
-    void AttackEnemy(int damage) {
-        float x = Screen.width / 2;
+    void AttackEnemy(int damage, GameObject enemy) {
+        enemy.GetComponent<EnemyDeathScript>().DealDamage(damage);
+        
+        /*float x = Screen.width / 2;
         float y = Screen.height / 2;
         Ray ray = MainCamera.ScreenPointToRay(new Vector3(x, y));
         RaycastHit hit;
@@ -38,6 +59,18 @@ public class Attack : MonoBehaviour {
                     hit.collider.gameObject.GetComponent<EnemyDeathScript>().DealDamage(damage);
                 }
             }
+        }*/
+    }
+
+    IEnumerator DashPunch(int damage) {
+        yield return new WaitUntil(() => movementScript.dashing == false);
+        Debug.Log("Dash Punch");
+    }
+
+    private void OnTriggerStay(Collider other) {
+        if(!PlayerManager.alive) { return; }
+        if(other.gameObject.tag == Tags.ENEMY) {
+            CheckAttack(other.gameObject);
         }
     }
 }
