@@ -5,7 +5,10 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/_Scenes_/MainScenes_NU_TOUCHY/MainSceneDONOTTOUCH.unity
     guid: 3e2b40979162b674c8a3ff546a163d18
+  - enabled: 1
+    path: Assets/_Scenes_/SandboxScenes/Isaac/ModularBossRoom.unity
+    guid: fb5f3669929db9c45b2749540af10ae6
   m_configObjects: {}
