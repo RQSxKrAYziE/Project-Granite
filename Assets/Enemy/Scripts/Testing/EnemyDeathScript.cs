@@ -50,7 +50,8 @@ public class EnemyDeathScript : MonoBehaviour {
 
     void Ragdoll() {
         dead = true;
-        agent.enabled = false;
+        GetComponent<Animator>().SetTrigger("Dead");
+        agent.enabled = true;
         GetComponent<CapsuleCollider>().enabled = false;
         GetComponent<EnemyAI>().enabled = false;
         GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;

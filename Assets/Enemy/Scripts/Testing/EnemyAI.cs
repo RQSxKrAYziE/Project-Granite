@@ -5,8 +5,10 @@ using UnityEngine.AI;
 
 public class EnemyAI : MonoBehaviour{
 
-    public Transform playerTarget;
     [SerializeField] AIState aiState;
+    [SerializeField] Transform playerTarget;
+    [SerializeField] BoxCollider fist;
+    [SerializeField] float damage = 10;
     Vector3 direction;
     Vector3 rotDirection;
     bool isInAngle;
@@ -131,6 +133,7 @@ public class EnemyAI : MonoBehaviour{
         FindDirection(playerTarget);
         RotateTowardsTarget();
         MoveToPosition(playerTarget.position);
+        AttackTarget();
     }
 
     void DistanceCheck(Transform target) {
@@ -173,7 +176,27 @@ public class EnemyAI : MonoBehaviour{
         agent.SetDestination(playerPosition);
     }
 
+    void AttackTarget() {
+        if(agent.remainingDistance <= 2f) {
+            GetComponent<Animator>().SetTrigger(Animation.ENEMY_ATTACK);
+        }
+    }
+
+    void ActivateFist() {
+        fist.enabled = true;
+    }
+
+    void DeactivateFist() {
+        fist.enabled = false;
+    }
+
     public enum AIState {
         idle, lateIdle, inRadius, inView
+    }
+
+    private void OnTriggerEnter(Collider other) {
+        if(other.tag == Tags.PLAYER) {
+            other.GetComponent<PlayerDeath>().DamagePlayer(damage);
+        }
     }
 }
