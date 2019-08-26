@@ -177,8 +177,9 @@ public class EnemyAI : MonoBehaviour{
     }
 
     void AttackTarget() {
-        if(agent.remainingDistance <= 2f) {
-            GetComponent<Animator>().SetTrigger(Animation.ENEMY_ATTACK);
+        if(agent.remainingDistance <= 1.7f) {
+            Debug.Log(agent.remainingDistance);
+            GetComponent<Animator>().SetTrigger(EnemyAnimation.ENEMY_ATTACK);
         }
     }
 

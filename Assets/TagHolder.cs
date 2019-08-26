@@ -26,9 +26,13 @@ public class Layers {
     public const string DEFAULT = "Default";
 }
 
-public class Animation {
+public class PlayerAnimation {
     public const string WALKING = "Walking";
-    public const string RIGHT_PUNCH = "Right Attack";
-    public const string LEFT_PUNCH = "Left Attack";
+    public const string RIGHT_PUNCH = "RightAttack";
+    public const string LEFT_PUNCH = "LeftAttack";
+    public const string WALK_BLEND = "WalkBlend";
+}
+
+public class EnemyAnimation {
     public const string ENEMY_ATTACK = "EnemyAttack";
 }
