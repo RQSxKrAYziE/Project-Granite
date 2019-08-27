@@ -46,4 +46,18 @@ public class WeaponHandler : MonoBehaviour {
         transform.eulerAngles = new Vector3(0, 0, 0);
     }
 
+    private void OnTriggerEnter(Collider other) {
+        if (other.tag == Tags.PLAYER) {
+            switch (weaponType) {
+                case WeaponType.ONE_HANDED:
+                    other.GetComponent<Pickup>().PickUpObject(gameObject);
+                    break;
+                case WeaponType.TWO_HANDED:
+                    if (other.GetComponent<Pickup>().rightHandWeapon == null && other.GetComponent<Pickup>().leftHandWeapon == null) {
+                        other.GetComponent<Pickup>().PickUpObject(gameObject);
+                    }
+                    break;
+            }
+        }
+    }//Trigger enter
 }
