@@ -4,21 +4,13 @@ using UnityEngine;
 
 public class DisableInvisible : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] Light lightDisable;
+    [SerializeField] Light lightEnable;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
-    private void OnBecameInvisible()
+    private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("hidden");
-        //GetComponent<Light>().enabled = false;
+        lightDisable.enabled = false;
+        lightEnable.enabled = true;
     }
 }
