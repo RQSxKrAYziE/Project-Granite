@@ -6,6 +6,8 @@ public class Pickup : MonoBehaviour {
     
     private Attack attackScript;
     WeaponHandler carriedHandler;
+    Transform throwHand;
+    GameObject throwWeapon; 
     [SerializeField] Transform rightHand;
     [SerializeField] Transform leftHand;
     [SerializeField] float startThrowHold = 0.0f;
@@ -23,22 +25,13 @@ public class Pickup : MonoBehaviour {
             CheckThrow();
         }
     }
-
-
-
+    
     void ThrowObject() {
-        Transform hand = GetHand();
-        GameObject weapon = 
-        StartCoroutine(weapon.GetComponent<WeaponHandler>().ThrowWeapon());
-        weapon.transform.parent = null;
-        ChangeLayerRecursively(weapon.transform, Layers.DEFAULT);
-        weapon.GetComponent<Rigidbody>().AddForce(hand.up * -1000);
+        StartCoroutine(throwWeapon.GetComponent<WeaponHandler>().ThrowWeapon());
+        throwWeapon.transform.parent = null;
+        ChangeLayerRecursively(throwWeapon.transform, Layers.DEFAULT);
+        throwWeapon.GetComponent<Rigidbody>().AddForce(throwHand.forward * 1000);
     }//throw object
-
-    Transform GetHand() {
-        
-        return hand;
-    }
 
     void Drop(GameObject weapon) {
         weapon.transform.parent = null;
@@ -58,9 +51,11 @@ public class Pickup : MonoBehaviour {
             if (leftHandWeapon == null) { return; }
             if (startThrowHold + throwHoldTimer <= Time.time) {
                 if (leftHandWeapon.GetComponent<WeaponHandler>().throwable) {
-                    GetComponent<Animator>().SetTrigger(PlayerAnimation.LEFT_THROW);
+                    throwHand = leftHand;
+                    throwWeapon = leftHandWeapon;
                     leftHandWeapon = null;
                     attackScript.leftDamage = attackScript.fistDamage;
+                    GetComponent<Animator>().SetTrigger(PlayerAnimation.LEFT_THROW);
                 } else {
                     Drop(leftHandWeapon);
                 }
@@ -74,9 +69,11 @@ public class Pickup : MonoBehaviour {
             if (rightHandWeapon == null) { return; }
             if (startThrowHold + throwHoldTimer <= Time.time) {
                 if (rightHandWeapon.GetComponent<WeaponHandler>().throwable) {
-                    ThrowObject(rightHandWeapon, rightHand);
+                    throwHand = rightHand;
+                    throwWeapon = rightHandWeapon;
                     rightHandWeapon = null;
                     attackScript.rightDamage = attackScript.fistDamage;
+                    GetComponent<Animator>().SetTrigger(PlayerAnimation.RIGHT_THROW);
                 } else {
                     Drop(rightHandWeapon);
                 }

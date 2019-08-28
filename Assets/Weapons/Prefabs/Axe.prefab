@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 145070447177369765}
   - component: {fileID: 145070447177369767}
   - component: {fileID: 145070447177369766}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -86,7 +86,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 145070447232460666}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -120,7 +120,7 @@ GameObject:
   - component: {fileID: 145070447380047141}
   - component: {fileID: 145070447380047143}
   - component: {fileID: 145070447380047142}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Cube (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -196,7 +196,7 @@ GameObject:
   m_Component:
   - component: {fileID: 145070447388157578}
   - component: {fileID: 145070447388157579}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -242,7 +242,7 @@ GameObject:
   - component: {fileID: 145070447902713719}
   - component: {fileID: 145070447902713713}
   - component: {fileID: 145070447902713714}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Axe
   m_TagString: Weapon
   m_Icon: {fileID: 0}
@@ -258,7 +258,7 @@ Transform:
   m_GameObject: {fileID: 145070447902713718}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 1.6, z: 4.794}
-  m_LocalScale: {x: 0.33333325, y: 0.3333333, z: 0.33333334}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children:
   - {fileID: 145070447232460666}
   - {fileID: 145070447388157578}
@@ -290,6 +290,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8acd979598826ce46a70689c8725e76e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  resetTimer: 0
   holdPosition: {x: 0, y: 0.5, z: 0}
   holdRotation: {x: 0, y: 0, z: 0}
   damage: 25
@@ -310,4 +311,4 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 2

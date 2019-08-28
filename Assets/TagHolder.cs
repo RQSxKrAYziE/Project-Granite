@@ -32,6 +32,7 @@ public class PlayerAnimation {
     public const string LEFT_PUNCH = "LeftAttack";
     public const string WALK_BLEND = "WalkBlend";
     public const string LEFT_THROW = "LeftThrow";
+    public const string RIGHT_THROW = "RightThrow";
 }
 
 public class EnemyAnimation {
