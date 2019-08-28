@@ -53,11 +53,11 @@ public class PlayerMovement : MonoBehaviour {
             StartCoroutine(Dash(new Vector3(Input.GetAxis(Axis.HORIZONTAL), 0, Input.GetAxis(Axis.VERTICAL))));
         }
         //Animation
-        if(rb.velocity != Vector3.zero) {
-            GetComponent<Animator>().SetBool(Animation.WALKING, true);
-        } else {
-            GetComponent<Animator>().SetBool(Animation.WALKING, false);
-        }
+        //if(horizontalMovement.magnitude >= 5f) {
+        //    GetComponent<Animator>().SetFloat(PlayerAnimation.WALK_BLEND, horizontalMovement.magnitude);
+        //} else {
+        //    GetComponent<Animator>().SetFloat(PlayerAnimation.WALK_BLEND, false);
+        //}
     }
 
     private IEnumerator Dash(Vector3 direction) {
@@ -72,6 +72,7 @@ public class PlayerMovement : MonoBehaviour {
 
     private void Update() {
         if (dashing || !PlayerManager.alive) { return; }
+        GetComponent<Animator>().SetFloat(PlayerAnimation.WALK_BLEND, horizontalMovement.magnitude);
         //Jump
         if (Input.GetButtonDown(Axis.JUMP) && grounded) {
             rb.AddForce(0, jumpForce, 0);
