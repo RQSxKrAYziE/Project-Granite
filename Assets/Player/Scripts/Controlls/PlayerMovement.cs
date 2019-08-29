@@ -11,7 +11,7 @@ public class PlayerMovement : MonoBehaviour {
     [SerializeField] private float jumpForce = 800;
     [SerializeField] private float maxSlope = 60;
     [SerializeField] private float dashSpeed = 6000;
-    public bool dashing = false;
+    bool dashing = false;
     public bool frontDash = false;
     private bool stopDash = false;
     private Rigidbody rb;
@@ -63,9 +63,12 @@ public class PlayerMovement : MonoBehaviour {
     private IEnumerator Dash(Vector3 direction) {
         dashing = true;
         stopDash = true;
+        if (direction == Vector3.forward)
+            frontDash = true;
         rb.AddRelativeForce(direction * dashSpeed * Time.deltaTime, ForceMode.VelocityChange);
         yield return new WaitForSeconds(0.2f);
         dashing = false;
+        frontDash = false;
         yield return new WaitForSeconds(0.1f);
         stopDash = false;
     }

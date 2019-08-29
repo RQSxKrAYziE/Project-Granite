@@ -21,7 +21,6 @@ public class EnemyDeathScript : MonoBehaviour {
     }
 
     public void DealDamage(int damage) {
-        Debug.Log("Attack");
         direction = player.position - transform.position;
         direction = -direction.normalized;
         health = health - damage;
