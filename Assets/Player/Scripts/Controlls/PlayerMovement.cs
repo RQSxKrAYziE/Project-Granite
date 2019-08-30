@@ -25,6 +25,7 @@ public class PlayerMovement : MonoBehaviour {
         rb = GetComponent<Rigidbody>();
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+        Physics.IgnoreLayerCollision(10, 9);
     }
 
     private void FixedUpdate() {
@@ -46,7 +47,7 @@ public class PlayerMovement : MonoBehaviour {
         if (grounded) {
             rb.AddRelativeForce(Input.GetAxis(Axis.HORIZONTAL) * accel * Time.deltaTime, 0, Input.GetAxis(Axis.VERTICAL) * accel * Time.deltaTime, ForceMode.VelocityChange);
         } else {
-            rb.AddRelativeForce(Input.GetAxis(Axis.HORIZONTAL) * accel * airAccel * Time.deltaTime, 0, Input.GetAxis(Axis.VERTICAL) * accel * airAccel * Time.deltaTime);
+            rb.AddRelativeForce(Input.GetAxis(Axis.HORIZONTAL) * accel * airAccel * Time.deltaTime, 0, Input.GetAxis(Axis.VERTICAL) * accel * airAccel * Time.deltaTime, ForceMode.Force);
         }
         //Dash
         if (Input.GetKeyDown(KeyCode.LeftShift) && grounded && !stopDash) {

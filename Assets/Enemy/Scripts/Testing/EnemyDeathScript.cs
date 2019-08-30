@@ -55,7 +55,7 @@ public class EnemyDeathScript : MonoBehaviour {
         GetComponent<EnemyAI>().enabled = false;
         GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
         ragdoll.SetActive(true);
-        ragdoll.GetComponent<Rigidbody>().AddForce(direction * 50000);
+        ragdoll.GetComponent<Rigidbody>().AddForce(direction * 20000);
     }
 
     private void OnCollisionExit(Collision collision) {
