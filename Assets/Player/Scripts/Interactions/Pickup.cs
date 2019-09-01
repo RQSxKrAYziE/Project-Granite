@@ -12,6 +12,7 @@ public class Pickup : MonoBehaviour {
     [SerializeField] Transform leftHand;
     [SerializeField] float startThrowHold = 0.0f;
     [SerializeField] float throwHoldTimer = 1.0f;
+    [SerializeField] float throwForce;
     public GameObject rightHandWeapon;
     public GameObject leftHandWeapon;
 
@@ -30,7 +31,7 @@ public class Pickup : MonoBehaviour {
         StartCoroutine(throwWeapon.GetComponent<WeaponHandler>().ThrowWeapon());
         throwWeapon.transform.parent = null;
         ChangeLayerRecursively(throwWeapon.transform, Layers.DEFAULT);
-        throwWeapon.GetComponent<Rigidbody>().AddForce(throwHand.forward * 1000);
+        throwWeapon.GetComponent<Rigidbody>().AddForce(throwHand.forward * throwForce);
     }//throw object
 
     void Drop(GameObject weapon) {
