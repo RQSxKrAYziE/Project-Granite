@@ -23,16 +23,17 @@ public class PlayerDeath : MonoBehaviour {
             Application.Quit();
     }
 
-    public void DamagePlayer(float damage) {
-        health = health - damage;
-        CheckHealth();
+    public void DamagePlayer(float damage) {
+        health = health - damage;
+        CheckHealth();
     }
 
-    void CheckHealth() { 
-        if(health <= 0) {
-            killPlayer();
-        }
+    void CheckHealth() { 
+        if(health <= 0) {
+            killPlayer();
+        }
     }
+
 
     public void killPlayer()
     {
@@ -58,3 +59,14 @@ public class PlayerDeath : MonoBehaviour {
         PlayerManager.player.GetComponent<Rigidbody>().velocity = new Vector3();
     }
 }
+
+    public void DamagePlayer(float damage) {
+        health = health - damage;
+        CheckHealth();
+    }
+
+    void CheckHealth() { 
+        if(health <= 0) {
+            killPlayer();
+        }
+    }
