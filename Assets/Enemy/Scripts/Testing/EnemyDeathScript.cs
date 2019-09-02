@@ -22,6 +22,8 @@ public class EnemyDeathScript : MonoBehaviour {
 
     public void DealDamage(int damage) {
         Debug.Log("Attack");
+        direction = player.position - transform.position;
+        direction = -direction.normalized;
         health = health - damage;
         CheckHealth();
         if (!hit) {
@@ -32,8 +34,6 @@ public class EnemyDeathScript : MonoBehaviour {
     IEnumerator Force() {
         hit = true;
         agent.enabled = false;
-        direction = player.position - transform.position;
-        direction = -direction.normalized;
         GetComponent<Rigidbody>().AddForce(direction.x * force, force / 2, direction.z * force);
         yield return new WaitUntil(() => grounded == false);
         yield return new WaitUntil(() => grounded == true);
@@ -50,11 +50,13 @@ public class EnemyDeathScript : MonoBehaviour {
 
     void Ragdoll() {
         dead = true;
-        agent.enabled = false;
+        GetComponent<Animator>().SetBool("Dead", true);
+        agent.enabled = true;
         GetComponent<CapsuleCollider>().enabled = false;
         GetComponent<EnemyAI>().enabled = false;
         GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
         ragdoll.SetActive(true);
+        ragdoll.GetComponent<Rigidbody>().AddForce(direction * 50000);
     }
 
     private void OnCollisionExit(Collision collision) {

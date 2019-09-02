@@ -20,9 +20,9 @@ public class Attack : MonoBehaviour {
 
     private void Update() {
         if(Input.GetKeyDown(KeyCode.Mouse0))
-            GetComponent<Animator>().SetTrigger(Animation.LEFT_PUNCH);
+            GetComponent<Animator>().SetTrigger(PlayerAnimation.LEFT_PUNCH);
         if(Input.GetKeyDown(KeyCode.Mouse1))
-            GetComponent<Animator>().SetTrigger(Animation.RIGHT_PUNCH);
+            GetComponent<Animator>().SetTrigger(PlayerAnimation.RIGHT_PUNCH);
     }
 
     void CheckAttack (GameObject enemy) {

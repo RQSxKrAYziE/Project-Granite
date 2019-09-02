@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class PlayerDeath : MonoBehaviour {
 
     [SerializeField] GameObject deathScreen;
+    [SerializeField] float health = 50;
 
     [SerializeField] Text timeAlive;
     [SerializeField] Text kills;
@@ -22,6 +23,16 @@ public class PlayerDeath : MonoBehaviour {
             Application.Quit();
     }
 
+    public void DamagePlayer(float damage) {
+        health = health - damage;
+        CheckHealth();
+    }
+
+    void CheckHealth() { 
+        if(health <= 0) {
+            killPlayer();
+        }
+    }
 
     public void killPlayer()
     {
