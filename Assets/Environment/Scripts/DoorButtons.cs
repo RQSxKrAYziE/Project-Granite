@@ -5,9 +5,13 @@ using UnityEngine;
 public class DoorButtons : MonoBehaviour {
 
     [SerializeField] GameObject key;
+    [SerializeField] Door door;
     public bool hasKey = false;
 
-    public void 
+    public void Key() {
+        hasKey = true;
+        door.CheckButtons();
+    }
 
     private void OnTriggerStay(Collider other) {
         if(hasKey) { return; }

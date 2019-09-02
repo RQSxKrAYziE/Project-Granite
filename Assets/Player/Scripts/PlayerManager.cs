@@ -22,6 +22,7 @@ public static class PlayerManager {
 
     public static Vector3 respawnPoint;
     public static bool alive = true;
+    public static bool win = true;
 
     public static List<GameObject> doorKeys = new List<GameObject>();
 

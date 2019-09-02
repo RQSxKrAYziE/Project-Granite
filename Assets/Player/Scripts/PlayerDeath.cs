@@ -7,6 +7,8 @@ using UnityEngine.SceneManagement;
 public class PlayerDeath : MonoBehaviour {
 
     [SerializeField] GameObject deathScreen;
+    [SerializeField] GameObject winScreen;
+    [SerializeField] GameObject stats;
     [SerializeField] float health = 50;
 
     [SerializeField] Text timeAlive;
@@ -31,21 +33,31 @@ public class PlayerDeath : MonoBehaviour {
     void CheckHealth() { 
         if(health <= 0) {
             killPlayer();
+            SetStats();
         }
     }
 
-    public void killPlayer()
-    {
-        PlayerManager.alive = false;
-        deathScreen.SetActive(true);
+    void PlayerWin() {
+        PlayerManager.win = true;
+        winScreen.SetActive(true);
         Cursor.lockState = CursorLockMode.None;
         GetComponent<Rigidbody>().velocity = Vector3.zero;
-        //set stats
+        PlayerManager.ResetStats();
+    }
+
+    void SetStats() {
+        stats.SetActive(true);
         timeAlive.text = "Seconds Survived: " + PlayerManager.SecondsPlayerAlive;
         kills.text = "Things you punched: " + PlayerManager.enemiesPlayerKilled;
         //punches.text = "Times you punched: " + PlayerManager.timesPlayerPunched;
         //punchEfficancy.text = "Punch Efficancy Rating: " + (float)  PlayerManager.enemiesPlayerKilled / PlayerManager.timesPlayerPunched * 100 + "%";
+    }
 
+    void killPlayer() {
+        PlayerManager.alive = false;
+        deathScreen.SetActive(true);
+        Cursor.lockState = CursorLockMode.None;
+        GetComponent<Rigidbody>().velocity = Vector3.zero;
         PlayerManager.ResetStats();
     }
 
@@ -56,5 +68,12 @@ public class PlayerDeath : MonoBehaviour {
         Cursor.lockState = CursorLockMode.Locked;
         PlayerManager.player.transform.position = PlayerManager.respawnPoint;
         PlayerManager.player.GetComponent<Rigidbody>().velocity = new Vector3();
+    }
+
+    private void OnCollisionEnter(Collision collision) {
+        if (collision.gameObject.tag == Tags.FINISH) {
+            SetStats();
+            PlayerWin();
+        }
     }
 }

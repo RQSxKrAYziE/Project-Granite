@@ -14,8 +14,13 @@ public class Interact : MonoBehaviour {
 
     void CheckInteract(GameObject key, GameObject button) {
         if (Input.GetKeyDown(KeyCode.E)) {
-            button.GetComponent<DoorButtons>().hasKey = true;
-            button.GetComponent<Collider>().enabled = false;
+            key.GetComponent<Collider>().enabled = false;
+            key.GetComponent<DoorKey>().enabled = false;
+            button.GetComponent<DoorButtons>().Key();
+            var pos = button.transform.position;
+            pos.y += 0.5f;
+            key.transform.position = pos;
+            key.SetActive(true);
         }
     }
 }

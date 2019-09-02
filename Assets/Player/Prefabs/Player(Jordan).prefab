@@ -283,7 +283,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4463555671306446}
   - component: {fileID: 114142603654846940}
-  - component: {fileID: 1134590734114221460}
+  - component: {fileID: 3287034864243970579}
   - component: {fileID: 114771801328994462}
   - component: {fileID: 49823718}
   - component: {fileID: 5483617860904014233}
@@ -333,7 +333,7 @@ MonoBehaviour:
   maxSlope: 60
   dashSpeed: 1500
   frontDash: 0
---- !u!114 &1134590734114221460
+--- !u!114 &3287034864243970579
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -342,7 +342,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1623038678746708}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 082505576f1205343b0ca51f93ce8187, type: 3}
+  m_Script: {fileID: 11500000, guid: 2f54069a789153445bcce621abf52112, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &114771801328994462
