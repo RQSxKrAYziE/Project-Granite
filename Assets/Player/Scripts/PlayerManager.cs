@@ -23,6 +23,7 @@ public static class PlayerManager {
     public static Vector3 respawnPoint;
     public static bool alive = true;
 
+    public static List<GameObject> doorKeys = new List<GameObject>();
 
     //interesting stats
     public static int enemiesPlayerKilled = 0;

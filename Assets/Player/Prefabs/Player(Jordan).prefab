@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4196742287942002}
   - component: {fileID: 20149992209005154}
   - component: {fileID: 1299993068}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FirstPersonCamera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1
   volumeAnchorOverride: {fileID: 0}
-  antialiasing: 0
+  antialiasing: 2
   SMAAQuality: 2
   dithering: 0
   stopNaNs: 0
@@ -213,7 +213,7 @@ GameObject:
   - component: {fileID: 4939395343356520}
   - component: {fileID: 114844093368928242}
   - component: {fileID: 1761998211}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: LookRoot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -253,6 +253,7 @@ MonoBehaviour:
   lookRoot: {fileID: 4939395343356520}
   invert: 0
   can_Unlock: 1
+  aimAssist: 0
   sensitivity: 5
   smoothWeight: 0.4
   rollAngle: 0.8
@@ -282,6 +283,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4463555671306446}
   - component: {fileID: 114142603654846940}
+  - component: {fileID: 1134590734114221460}
   - component: {fileID: 114771801328994462}
   - component: {fileID: 49823718}
   - component: {fileID: 5483617860904014233}
@@ -289,7 +291,7 @@ GameObject:
   - component: {fileID: 882076150898644159}
   - component: {fileID: 49823720}
   - component: {fileID: 49823719}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Player(Jordan)
   m_TagString: Player
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
@@ -331,6 +333,18 @@ MonoBehaviour:
   maxSlope: 60
   dashSpeed: 1500
   frontDash: 0
+--- !u!114 &1134590734114221460
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1623038678746708}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 082505576f1205343b0ca51f93ce8187, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114771801328994462
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -347,6 +361,7 @@ MonoBehaviour:
   leftHand: {fileID: 2735820539823265838}
   startThrowHold: 0
   throwHoldTimer: 0.3
+  throwForce: 2000
   rightHandWeapon: {fileID: 0}
   leftHandWeapon: {fileID: 0}
 --- !u!114 &49823718
@@ -361,7 +376,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4a898df36bebd34e8b658167222d282, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MainCamera: {fileID: 20880887254426694}
   fistDamage: 50
   rightDamage: 0
   leftDamage: 0
@@ -456,7 +470,7 @@ GameObject:
   - component: {fileID: 20880887254426694}
   - component: {fileID: 81105478684641898}
   - component: {fileID: 2055334280}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -547,7 +561,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1
   volumeAnchorOverride: {fileID: 0}
-  antialiasing: 0
+  antialiasing: 1
   SMAAQuality: 2
   dithering: 0
   stopNaNs: 0
