@@ -6,28 +6,31 @@ public class Pickup : MonoBehaviour {
     
     private Attack attackScript;
     WeaponHandler carriedHandler;
-    GameObject rightHandWeapon;
-    GameObject leftHandWeapon;
+    Transform throwHand;
+    GameObject throwWeapon; 
     [SerializeField] Transform rightHand;
     [SerializeField] Transform leftHand;
     [SerializeField] float startThrowHold = 0.0f;
     [SerializeField] float throwHoldTimer = 1.0f;
+    public GameObject rightHandWeapon;
+    public GameObject leftHandWeapon;
 
     private void Awake() {
         attackScript = GetComponent<Attack>();
     }
 
     private void Update() {
+        if (!PlayerManager.alive) { return; }
         if (rightHandWeapon != null || leftHandWeapon != null) {
             CheckThrow();
         }
     }
-
-    void ThrowObject(GameObject weapon, Transform hand) {
-        StartCoroutine(weapon.GetComponent<WeaponHandler>().ThrowWeapon());
-        weapon.transform.parent = null;
-        ChangeLayerRecursively(weapon.transform, Layers.DEFAULT);
-        weapon.GetComponent<Rigidbody>().AddForce(hand.up * -1000);
+    
+    void ThrowObject() {
+        StartCoroutine(throwWeapon.GetComponent<WeaponHandler>().ThrowWeapon());
+        throwWeapon.transform.parent = null;
+        ChangeLayerRecursively(throwWeapon.transform, Layers.DEFAULT);
+        throwWeapon.GetComponent<Rigidbody>().AddForce(throwHand.forward * 1000);
     }//throw object
 
     void Drop(GameObject weapon) {
@@ -48,9 +51,11 @@ public class Pickup : MonoBehaviour {
             if (leftHandWeapon == null) { return; }
             if (startThrowHold + throwHoldTimer <= Time.time) {
                 if (leftHandWeapon.GetComponent<WeaponHandler>().throwable) {
-                    ThrowObject(leftHandWeapon, leftHand);
+                    throwHand = leftHand;
+                    throwWeapon = leftHandWeapon;
                     leftHandWeapon = null;
                     attackScript.leftDamage = attackScript.fistDamage;
+                    GetComponent<Animator>().SetTrigger(PlayerAnimation.LEFT_THROW);
                 } else {
                     Drop(leftHandWeapon);
                 }
@@ -64,9 +69,11 @@ public class Pickup : MonoBehaviour {
             if (rightHandWeapon == null) { return; }
             if (startThrowHold + throwHoldTimer <= Time.time) {
                 if (rightHandWeapon.GetComponent<WeaponHandler>().throwable) {
-                    ThrowObject(rightHandWeapon, rightHand);
+                    throwHand = rightHand;
+                    throwWeapon = rightHandWeapon;
                     rightHandWeapon = null;
                     attackScript.rightDamage = attackScript.fistDamage;
+                    GetComponent<Animator>().SetTrigger(PlayerAnimation.RIGHT_THROW);
                 } else {
                     Drop(rightHandWeapon);
                 }
@@ -74,7 +81,7 @@ public class Pickup : MonoBehaviour {
         }
     }//Check throw
 
-    void PickUpObject(GameObject weapon) {
+    public void PickUpObject(GameObject weapon) {
         carriedHandler = weapon.GetComponent<WeaponHandler>();
         weapon.transform.GetChild(1).GetComponent<Collider>().enabled = false;
         switch (carriedHandler.weaponType) {
@@ -98,6 +105,7 @@ public class Pickup : MonoBehaviour {
                     leftHandWeapon = weapon;
                     attackScript.leftDamage = carriedHandler.damage;
                 }
+                weapon.GetComponent<BoxCollider>().enabled = false;
                 weapon.transform.localPosition = carriedHandler.holdPosition;
                 weapon.transform.localEulerAngles = carriedHandler.holdRotation;
                 weapon.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePosition;
@@ -112,22 +120,4 @@ public class Pickup : MonoBehaviour {
         foreach (Transform child in trans)
             ChangeLayerRecursively(child, layerName);
     }//Change Layer
-
-    private void OnTriggerEnter(Collider other) {
-        //Ignores the trigger currently in players hand
-        if(other.gameObject == rightHandWeapon || other.gameObject == leftHandWeapon || (rightHandWeapon != null && leftHandWeapon != null)) { return; }
-        if (other.tag == Tags.WEAPON) {
-            switch (other.gameObject.GetComponent<WeaponHandler>().weaponType)
-            {
-                case WeaponType.ONE_HANDED:
-                    PickUpObject(other.gameObject);
-                    break;
-                case WeaponType.TWO_HANDED:
-                    if (rightHandWeapon == null && leftHandWeapon == null) {
-                        PickUpObject(other.gameObject);
-                    }
-                    break;
-            }
-        }
-    }//Trigger enter
 }//class

@@ -4,5 +4,8 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/_Scenes_/MainScenes_NU_TOUCHY/MainSceneDONOTTOUCH.unity
+    guid: 3e2b40979162b674c8a3ff546a163d18
   m_configObjects: {}
