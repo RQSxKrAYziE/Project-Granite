@@ -18,7 +18,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4375525698036486504
 Transform:
   m_ObjectHideFlags: 0
@@ -40,7 +40,7 @@ Light:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4946388011869799979}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 9
   m_Type: 0
   m_Color: {r: 0.6794996, g: 0, b: 1, a: 1}
@@ -133,8 +133,8 @@ MonoBehaviour:
   useOldInspector: 0
   useVolumetric: 1
   featuresFoldout: 1
-  showAdditionalSettings: 0
-  displayLightIntensity: 8000
+  showAdditionalSettings: 8
+  displayLightIntensity: 10000
   displayAreaLightEmissiveMesh: 0
   areaLightCookie: {fileID: 0}
   areaLightShadowCone: 120
@@ -143,7 +143,7 @@ MonoBehaviour:
   evsmVarianceBias: 0.00001
   evsmBlurPasses: 0
   lightLayers: 1
-  shadowNearPlane: 0.2
+  shadowNearPlane: 7.9
   shadowSoftness: 0.5
   blockerSampleCount: 24
   filterSampleCount: 16
@@ -169,14 +169,14 @@ MonoBehaviour:
   volumetricShadowDimmer: 1
   shadowFadeDistance: 10000
   contactShadows: 1
-  viewBiasMin: 0.2
+  viewBiasMin: 3.41
   viewBiasMax: 100
-  viewBiasScale: 4.84
-  normalBiasMin: 0.5
-  normalBiasMax: 0.5
+  viewBiasScale: 15
+  normalBiasMin: 0
+  normalBiasMax: 0
   normalBiasScale: 1
   sampleBiasScale: 0
-  edgeLeakFixup: 0
+  edgeLeakFixup: 1
   edgeToleranceNormal: 1
   edgeTolerance: 1
   shadowCascadeCount: 4
@@ -240,10 +240,10 @@ Light:
   serializedVersion: 9
   m_Type: 0
   m_Color: {r: 0.6794996, g: 0, b: 1, a: 1}
-  m_Intensity: 636.61975
+  m_Intensity: 795.7747
   m_Range: 25.420494
   m_SpotAngle: 69.826675
-  m_InnerSpotAngle: 1
+  m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
     m_Type: 1
@@ -280,7 +280,7 @@ Light:
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
   m_Lightmapping: 1
-  m_LightShadowCasterMode: 1
+  m_LightShadowCasterMode: 2
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 0.005
   m_ColorTemperature: 6570
@@ -329,8 +329,8 @@ MonoBehaviour:
   useOldInspector: 0
   useVolumetric: 1
   featuresFoldout: 1
-  showAdditionalSettings: 0
-  displayLightIntensity: 8000
+  showAdditionalSettings: 8
+  displayLightIntensity: 10000
   displayAreaLightEmissiveMesh: 0
   areaLightCookie: {fileID: 0}
   areaLightShadowCone: 120
@@ -339,7 +339,7 @@ MonoBehaviour:
   evsmVarianceBias: 0.00001
   evsmBlurPasses: 0
   lightLayers: 1
-  shadowNearPlane: 0.2
+  shadowNearPlane: 6.26
   shadowSoftness: 0.5
   blockerSampleCount: 24
   filterSampleCount: 16
@@ -364,15 +364,15 @@ MonoBehaviour:
   shadowDimmer: 1
   volumetricShadowDimmer: 1
   shadowFadeDistance: 10000
-  contactShadows: 1
+  contactShadows: 0
   viewBiasMin: 0.2
   viewBiasMax: 100
-  viewBiasScale: 4.84
+  viewBiasScale: 2.35
   normalBiasMin: 0.5
   normalBiasMax: 0.5
   normalBiasScale: 1
   sampleBiasScale: 0
-  edgeLeakFixup: 0
+  edgeLeakFixup: 1
   edgeToleranceNormal: 1
   edgeTolerance: 1
   shadowCascadeCount: 4
@@ -558,7 +558,7 @@ GameObject:
   - component: {fileID: 1313101988950967057}
   - component: {fileID: 1242659752306080764}
   - component: {fileID: 2457061964334822159}
-  - component: {fileID: 2525379983710846195}
+  - component: {fileID: 330076793}
   m_Layer: 0
   m_Name: trigger
   m_TagString: Untagged
@@ -574,8 +574,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6251909374806285503}
   m_LocalRotation: {x: -0, y: 1, z: -0, w: 0.0000004768371}
-  m_LocalPosition: {x: -0, y: 1.407, z: 1.11}
-  m_LocalScale: {x: 4.135886, y: 3.2815, z: 2.6030123}
+  m_LocalPosition: {x: -0, y: 1.407, z: 1.262}
+  m_LocalScale: {x: 6.212101, y: 4.158645, z: 1.2360665}
   m_Children: []
   m_Father: {fileID: 6190054506617338862}
   m_RootOrder: 3
@@ -638,7 +638,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 0.6497188}
   m_Center: {x: 0, y: 0, z: -0.17514065}
---- !u!114 &2525379983710846195
+--- !u!114 &330076793
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -647,11 +647,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 6251909374806285503}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9882cd8dd7a1fb94488ec40d6cd3c9fe, type: 3}
+  m_Script: {fileID: 11500000, guid: 9fcc052f39180c542a4ffd38b5e85915, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lightDisable: {fileID: 953617871537449347}
-  lightEnable: {fileID: 8469638540490936996}
+  lightDisable: {fileID: 6104691148596887570}
+  lightEnable: {fileID: 4946388011869799979}
 --- !u!1 &6466719909869066649
 GameObject:
   m_ObjectHideFlags: 0
@@ -664,7 +664,7 @@ GameObject:
   - component: {fileID: 696748853133567006}
   - component: {fileID: 2117524140605309877}
   - component: {fileID: 5740736115215410155}
-  - component: {fileID: 5360526101720194372}
+  - component: {fileID: 2086075345}
   m_Layer: 0
   m_Name: trigger2
   m_TagString: Untagged
@@ -680,8 +680,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6466719909869066649}
   m_LocalRotation: {x: -0, y: 1, z: -0, w: 0.0000004768371}
-  m_LocalPosition: {x: 0, y: 1.407, z: -1.74}
-  m_LocalScale: {x: 4.135886, y: 3.2815, z: 2.6030123}
+  m_LocalPosition: {x: -0, y: 1.407, z: -1.591}
+  m_LocalScale: {x: 6.212101, y: 4.158645, z: 1.2360665}
   m_Children: []
   m_Father: {fileID: 6190054506617338862}
   m_RootOrder: 4
@@ -744,7 +744,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 0.6497188}
   m_Center: {x: 0, y: 0, z: -0.17514065}
---- !u!114 &5360526101720194372
+--- !u!114 &2086075345
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -753,11 +753,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 6466719909869066649}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9882cd8dd7a1fb94488ec40d6cd3c9fe, type: 3}
+  m_Script: {fileID: 11500000, guid: 9fcc052f39180c542a4ffd38b5e85915, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lightDisable: {fileID: 8469638540490936996}
-  lightEnable: {fileID: 953617871537449347}
+  lightDisable: {fileID: 4946388011869799979}
+  lightEnable: {fileID: 6104691148596887570}
 --- !u!1001 &5490821546663141286
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -765,16 +765,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6190054506617338862}
     m_Modifications:
-    - target: {fileID: -927199367670048503, guid: 3a883148ee2d24947a4f292d126d097b,
-        type: 3}
-      propertyPath: m_Name
-      value: SquareDoor
-      objectReference: {fileID: 0}
-    - target: {fileID: -927199367670048503, guid: 3a883148ee2d24947a4f292d126d097b,
-        type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 4294967295
-      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 3a883148ee2d24947a4f292d126d097b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -829,6 +819,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 3a883148ee2d24947a4f292d126d097b,
+        type: 3}
+      propertyPath: m_Name
+      value: SquareDoor
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 3a883148ee2d24947a4f292d126d097b,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3a883148ee2d24947a4f292d126d097b, type: 3}
