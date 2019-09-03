@@ -60,13 +60,4 @@ public class PlayerDeath : MonoBehaviour {
     }
 }
 
-    public void DamagePlayer(float damage) {
-        health = health - damage;
-        CheckHealth();
-    }
-
-    void CheckHealth() { 
-        if(health <= 0) {
-            killPlayer();
-        }
-    }
+    
