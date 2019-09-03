@@ -9,8 +9,8 @@ public class PlayerDeath : MonoBehaviour {
     [SerializeField] GameObject deathScreen;
     [SerializeField] GameObject winScreen;
     [SerializeField] GameObject stats;
-    [SerializeField] float health = 50;
 
+    [Header("Texts Stats: ")]
     [SerializeField] Text timeAlive;
     [SerializeField] Text kills;
     [SerializeField] Text punches;
@@ -26,12 +26,13 @@ public class PlayerDeath : MonoBehaviour {
     }
 
     public void DamagePlayer(float damage) {
-        health = health - damage;
+        PlayerManager.health = PlayerManager.health - damage;
+        Debug.Log(PlayerManager.health);
         CheckHealth();
     }
 
     void CheckHealth() { 
-        if(health <= 0) {
+        if(PlayerManager.health <= 0) {
             killPlayer();
             SetStats();
         }

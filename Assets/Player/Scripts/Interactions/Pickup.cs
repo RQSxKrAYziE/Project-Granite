@@ -34,10 +34,12 @@ public class Pickup : MonoBehaviour {
 
     void SendLeftHandData() {
         ThrowObject(leftHandWeapon, leftHand);
+        leftHandWeapon = null;
     }
 
     void SendRightHandData() {
         ThrowObject(rightHandWeapon, rightHand);
+        rightHandWeapon = null;
     }
 
     void Drop(GameObject weapon) {
@@ -58,7 +60,6 @@ public class Pickup : MonoBehaviour {
             if (leftHandWeapon == null) { return; }
             if (startThrowHold + throwHoldTimer <= Time.time) {
                 if (leftHandWeapon.GetComponent<WeaponHandler>().throwable) {
-                    leftHandWeapon = null;
                     attackScript.leftDamage = attackScript.fistDamage;
                     GetComponent<Animator>().SetTrigger(PlayerAnimation.LEFT_THROW);
                 } else {
@@ -74,7 +75,6 @@ public class Pickup : MonoBehaviour {
             if (rightHandWeapon == null) { return; }
             if (startThrowHold + throwHoldTimer <= Time.time) {
                 if (rightHandWeapon.GetComponent<WeaponHandler>().throwable) {
-                    rightHandWeapon = null;
                     attackScript.rightDamage = attackScript.fistDamage;
                     GetComponent<Animator>().SetTrigger(PlayerAnimation.RIGHT_THROW);
                 } else {
