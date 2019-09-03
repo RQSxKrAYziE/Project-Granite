@@ -16,6 +16,12 @@ public class PlayerDeath : MonoBehaviour {
     [SerializeField] Text punches;
     [SerializeField] Text punchEfficancy;
 
+    [Header("Health:")]
+    [SerializeField] float startHealthDelay = 0;
+    [SerializeField] float healDelayTimer = 5;
+    [SerializeField] float regenSpeed = 1;
+    bool damaged = false;
+
     private void Update() {
         if (Input.GetKeyDown(KeyCode.R)) {
             PlayerManager.alive = true;
@@ -23,11 +29,20 @@ public class PlayerDeath : MonoBehaviour {
         }
         if (Input.GetKeyDown(KeyCode.Escape))
             Application.Quit();
+
+        if(startHealthDelay + healDelayTimer <= Time.time && damaged) {
+            PlayerManager.health += regenSpeed * Time.deltaTime;
+            if(PlayerManager.health > PlayerManager.maxHealth) {
+                PlayerManager.health = PlayerManager.maxHealth;
+                damaged = false;
+            }
+        }
     }
 
     public void DamagePlayer(float damage) {
         PlayerManager.health = PlayerManager.health - damage;
         Debug.Log(PlayerManager.health);
+        damaged = true;
         CheckHealth();
     }
 
@@ -35,6 +50,8 @@ public class PlayerDeath : MonoBehaviour {
         if(PlayerManager.health <= 0) {
             killPlayer();
             SetStats();
+        } else {
+            startHealthDelay = Time.time;
         }
     }
 
