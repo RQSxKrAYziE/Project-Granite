@@ -18,7 +18,7 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Goldwood
-    second: {fileID: 2100000, guid: 55edae0bf28e8df47a65e14b086496d2, type: 2}
+    second: {fileID: 2100000, guid: d7b912b6c276ca7408c0a23bb6e6aaca, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
