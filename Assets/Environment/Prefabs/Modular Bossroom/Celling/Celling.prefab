@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6867086423794639538}
   - component: {fileID: 2456656452239022212}
   - component: {fileID: 8154687881754649725}
+  - component: {fileID: 4996428228037038450}
   m_Layer: 0
   m_Name: Celling
   m_TagString: Untagged
@@ -77,3 +78,16 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &4996428228037038450
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7572683343196131489}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.009554959, y: 0.00015315265, z: 0.009554626}
+  m_Center: {x: 0.004777472, y: -0.00007656285, z: -0.004777313}
