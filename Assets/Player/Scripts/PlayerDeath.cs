@@ -65,16 +65,4 @@ public class PlayerDeath : MonoBehaviour
         PlayerManager.player.GetComponent<Rigidbody>().velocity = new Vector3();
     }
 }
-
-    public void DamagePlayer(float damage) {
-        health = health - damage;
-        CheckHealth();
-    }
-
-    void CheckHealth() { 
-        if(health <= 0) {
-            killPlayer();
-        }
-    }
-
     

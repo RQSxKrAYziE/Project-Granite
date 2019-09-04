@@ -14,6 +14,11 @@ ModelImporter:
       assembly: UnityEngine.CoreModule
       name: Goldwood
     second: {fileID: 2100000, guid: 55edae0bf28e8df47a65e14b086496d2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Meshtape
+    second: {fileID: 2100000, guid: 4665f26d2f7972b46b5224021a0acf4f, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
