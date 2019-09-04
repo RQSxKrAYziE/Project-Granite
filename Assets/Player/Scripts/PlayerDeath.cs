@@ -30,7 +30,7 @@ public class PlayerDeath : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.Escape))
             Application.Quit();
 
-        if(startHealthDelay + healDelayTimer <= Time.time && damaged) {
+        if(startHealthDelay + healDelayTimer <= Time.time && damaged && PlayerManager.alive) {
             PlayerManager.health += regenSpeed * Time.deltaTime;
             if(PlayerManager.health > PlayerManager.maxHealth) {
                 PlayerManager.health = PlayerManager.maxHealth;
@@ -72,6 +72,7 @@ public class PlayerDeath : MonoBehaviour {
     }
 
     void killPlayer() {
+        PlayerManager.health = 0;
         PlayerManager.alive = false;
         deathScreen.SetActive(true);
         Cursor.lockState = CursorLockMode.None;

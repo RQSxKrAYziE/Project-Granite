@@ -411,6 +411,9 @@ MonoBehaviour:
   kills: {fileID: 0}
   punches: {fileID: 0}
   punchEfficancy: {fileID: 0}
+  startHealthDelay: 0
+  healDelayTimer: 2
+  regenSpeed: 10
 --- !u!114 &4412323317559097140
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -424,6 +427,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthFill: {fileID: 0}
+  Keys:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!95 &882076150898644159
 Animator:
   serializedVersion: 3
