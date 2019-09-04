@@ -11,6 +11,9 @@ GameObject:
   - component: {fileID: 1220242001919885585}
   - component: {fileID: 7904992851451018023}
   - component: {fileID: 4506032257696696286}
+  - component: {fileID: 910946071175207834}
+  - component: {fileID: 3249814373285865309}
+  - component: {fileID: 5350401907225523026}
   m_Layer: 0
   m_Name: Celling Connector Corner
   m_TagString: Untagged
@@ -78,3 +81,42 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &910946071175207834
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2788979939035362050}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3.6146843, y: 1.8842916, z: 5.3922687}
+  m_Center: {x: -3.5840635, y: 1.2221937, z: -2.696856}
+--- !u!65 &3249814373285865309
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2788979939035362050}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.7714974, y: 1.8710265, z: 3.5925322}
+  m_Center: {x: -0.88470465, y: 1.2288263, z: -1.7969875}
+--- !u!65 &5350401907225523026
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2788979939035362050}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 5.392449, y: 0.28016758, z: 5.3922687}
+  m_Center: {x: -2.695181, y: 2.156128, z: -2.696856}

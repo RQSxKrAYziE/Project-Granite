@@ -4,7 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class PlayerDeath : MonoBehaviour {
+public class PlayerDeath : MonoBehaviour
+{
 
     [SerializeField] GameObject deathScreen;
     [SerializeField] float health = 50;
@@ -14,8 +15,10 @@ public class PlayerDeath : MonoBehaviour {
     [SerializeField] Text punches;
     [SerializeField] Text punchEfficancy;
 
-    private void Update() {
-        if (Input.GetKeyDown(KeyCode.R)) {
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.R))
+        {
             PlayerManager.alive = true;
             SceneManager.LoadScene(0);
         }
@@ -23,13 +26,16 @@ public class PlayerDeath : MonoBehaviour {
             Application.Quit();
     }
 
-    public void DamagePlayer(float damage) {
+    public void DamagePlayer(float damage)
+    {
         health = health - damage;
         CheckHealth();
     }
 
-    void CheckHealth() { 
-        if(health <= 0) {
+    void CheckHealth()
+    {
+        if (health <= 0)
+        {
             killPlayer();
         }
     }
@@ -59,5 +65,4 @@ public class PlayerDeath : MonoBehaviour {
         PlayerManager.player.GetComponent<Rigidbody>().velocity = new Vector3();
     }
 }
-
     
