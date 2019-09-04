@@ -282,13 +282,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4463555671306446}
-  - component: {fileID: 2976676879561899771}
+  - component: {fileID: 3115801711252747722}
   - component: {fileID: 114142603654846940}
   - component: {fileID: 114771801328994462}
   - component: {fileID: 49823718}
   - component: {fileID: 5483617860904014233}
   - component: {fileID: 287123571}
-  - component: {fileID: 4412323317559097140}
+  - component: {fileID: 3100663337878062524}
   - component: {fileID: 882076150898644159}
   - component: {fileID: 49823720}
   - component: {fileID: 49823719}
@@ -314,7 +314,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2976676879561899771
+--- !u!114 &3115801711252747722
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -323,7 +323,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1623038678746708}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 082505576f1205343b0ca51f93ce8187, type: 3}
+  m_Script: {fileID: 11500000, guid: 2f54069a789153445bcce621abf52112, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &114142603654846940
@@ -358,6 +358,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14c2b8a8ecfbf824a83e3105a8111e42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rightThrow: 0
   rightHand: {fileID: 5950919332615933981}
   leftHand: {fileID: 2735820539823265838}
   startThrowHold: 0
@@ -414,7 +415,7 @@ MonoBehaviour:
   startHealthDelay: 0
   healDelayTimer: 2
   regenSpeed: 10
---- !u!114 &4412323317559097140
+--- !u!114 &3100663337878062524
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -423,14 +424,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 1623038678746708}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 119fa2b7f04196041adfd8f3eb46aa0e, type: 3}
+  m_Script: {fileID: 11500000, guid: 771f11a43acd5934886dca1efe61dcd5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   healthFill: {fileID: 0}
-  Keys:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  stop: 0
+  blueKey: {fileID: 0}
+  redKey: {fileID: 0}
+  yellowKey: {fileID: 0}
+  bluePrefab: {fileID: 0}
+  redPrefab: {fileID: 0}
+  yellowPrefab: {fileID: 0}
+  crosshair: {fileID: 0}
 --- !u!95 &882076150898644159
 Animator:
   serializedVersion: 3
