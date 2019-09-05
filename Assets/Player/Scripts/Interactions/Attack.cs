@@ -7,7 +7,7 @@ public class Attack : MonoBehaviour {
     private Pickup pickupScript;
     private PlayerMovement movementScript;
     private float attackDist = 3;
-    [SerializeField] private Camera MainCamera;
+    //[SerializeField] private Camera MainCamera;
     public int fistDamage;
     public int rightDamage;
     public int leftDamage;
@@ -19,22 +19,26 @@ public class Attack : MonoBehaviour {
 	}
 
     private void Update() {
-        if(Input.GetKeyDown(KeyCode.Mouse0))
+        if (Input.GetKeyDown(KeyCode.Mouse0)) {
             GetComponent<Animator>().SetTrigger(PlayerAnimation.LEFT_PUNCH);
-        if(Input.GetKeyDown(KeyCode.Mouse1))
+        }
+        if (Input.GetKeyDown(KeyCode.Mouse1)) {
             GetComponent<Animator>().SetTrigger(PlayerAnimation.RIGHT_PUNCH);
+        }
     }
 
     void CheckAttack (GameObject enemy) {
         if (Input.GetKeyDown(KeyCode.Mouse0)) {//Left Click
-            if (movementScript.dashing) {
+            if (movementScript.frontDash) {
+                Debug.Log("Punch");
                 StartCoroutine(DashPunch(leftDamage * 2));
             } else {
                 AttackEnemy(leftDamage, enemy);
             }
         }
         if (Input.GetKeyDown(KeyCode.Mouse1)) {//RightClick
-            if (movementScript.dashing) {
+            if (movementScript.frontDash) {
+                Debug.Log("Punch");
                 StartCoroutine(DashPunch(rightDamage * 2));
             } else {
                 AttackEnemy(rightDamage, enemy);
@@ -63,7 +67,7 @@ public class Attack : MonoBehaviour {
     }
 
     IEnumerator DashPunch(int damage) {
-        yield return new WaitUntil(() => movementScript.dashing == false);
+        yield return new WaitUntil(() => movementScript.frontDash == false);
         Debug.Log("Dash Punch");
     }
 

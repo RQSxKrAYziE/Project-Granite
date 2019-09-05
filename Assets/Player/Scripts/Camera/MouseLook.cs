@@ -10,7 +10,8 @@ public class MouseLook : MonoBehaviour {
 
     [SerializeField] bool 
         invert, 
-        can_Unlock = true;
+        can_Unlock = true,
+        aimAssist;
 
     [SerializeField] float 
         sensitivity = 5f, 

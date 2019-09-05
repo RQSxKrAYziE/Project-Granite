@@ -19,6 +19,7 @@ public class Tags {
     public const string DOWN_STAIR = "DownStair";
     public const string PLAYER = "Player";
     public const string ENEMY = "Enemy";
+    public const string FINISH = "Finish";
 }
 
 public class Layers {
@@ -33,6 +34,8 @@ public class PlayerAnimation {
     public const string WALK_BLEND = "WalkBlend";
     public const string LEFT_THROW = "LeftThrow";
     public const string RIGHT_THROW = "RightThrow";
+    public const string END_RIGHT = "EndRight";
+    public const string END_LEFT = "EndLeft";
 }
 
 public class EnemyAnimation {

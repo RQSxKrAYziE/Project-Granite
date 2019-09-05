@@ -13,7 +13,7 @@ public class KillPlayerFallOffLevel : MonoBehaviour {
 	void Update () {
 		if(PlayerManager.player.transform.position.y < -13 && PlayerManager.alive)
         {
-            PlayerManager.playerDeath.killPlayer();
+            //PlayerManager.playerDeath.killPlayer();
         }
 	}
 }
