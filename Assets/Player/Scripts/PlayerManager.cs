@@ -22,7 +22,12 @@ public static class PlayerManager {
 
     public static Vector3 respawnPoint;
     public static bool alive = true;
+    public static bool win = true;
+    public static bool throwing = false;
+    public static float maxHealth = 50;
+    public static float health = 50;
 
+    public static List<GameObject> doorKeys = new List<GameObject>();
 
     //interesting stats
     public static int enemiesPlayerKilled = 0;

@@ -5,13 +5,14 @@ using UnityEngine;
 public class Pickup : MonoBehaviour {
     
     private Attack attackScript;
+    [SerializeField] private bool rightThrow = false;
+    private bool leftThrow = false;
     WeaponHandler carriedHandler;
-    Transform throwHand;
-    GameObject throwWeapon; 
     [SerializeField] Transform rightHand;
     [SerializeField] Transform leftHand;
     [SerializeField] float startThrowHold = 0.0f;
     [SerializeField] float throwHoldTimer = 1.0f;
+    [SerializeField] float throwForce;
     public GameObject rightHandWeapon;
     public GameObject leftHandWeapon;
 
@@ -24,14 +25,39 @@ public class Pickup : MonoBehaviour {
         if (rightHandWeapon != null || leftHandWeapon != null) {
             CheckThrow();
         }
+        if(rightThrow || leftThrow) {
+            HoldThrow();
+            PlayerManager.throwing = true;
+        } else if(!rightThrow && !leftThrow) {
+            PlayerManager.throwing = false;
+        }
     }
     
-    void ThrowObject() {
-        StartCoroutine(throwWeapon.GetComponent<WeaponHandler>().ThrowWeapon());
-        throwWeapon.transform.parent = null;
-        ChangeLayerRecursively(throwWeapon.transform, Layers.DEFAULT);
-        throwWeapon.GetComponent<Rigidbody>().AddForce(throwHand.forward * 1000);
+    void HoldThrow() {
+        if (Input.GetKeyUp(KeyCode.Mouse0))
+            GetComponent<Animator>().SetTrigger(PlayerAnimation.END_LEFT);
+        if (Input.GetKeyUp(KeyCode.Mouse1))
+            GetComponent<Animator>().SetTrigger(PlayerAnimation.END_RIGHT);
+    }
+
+    void ThrowObject(GameObject weapon, Transform hand) {
+        StartCoroutine(weapon.GetComponent<WeaponHandler>().ThrowWeapon());
+        weapon.transform.parent = null;
+        ChangeLayerRecursively(weapon.transform, Layers.DEFAULT);
+        weapon.GetComponent<Rigidbody>().AddForce(hand.forward * throwForce);
     }//throw object
+
+    void SendLeftHandData() {
+        ThrowObject(leftHandWeapon, leftHand);
+        leftThrow = false;
+        leftHandWeapon = null;
+    }
+
+    void SendRightHandData() {
+        ThrowObject(rightHandWeapon, rightHand);
+        rightThrow = false;
+        rightHandWeapon = null;
+    }
 
     void Drop(GameObject weapon) {
         weapon.transform.parent = null;
@@ -49,12 +75,10 @@ public class Pickup : MonoBehaviour {
         }
         if (Input.GetKey(KeyCode.Mouse0)) {
             if (leftHandWeapon == null) { return; }
-            if (startThrowHold + throwHoldTimer <= Time.time) {
+            if (startThrowHold + throwHoldTimer <= Time.time && !leftThrow) {
                 if (leftHandWeapon.GetComponent<WeaponHandler>().throwable) {
-                    throwHand = leftHand;
-                    throwWeapon = leftHandWeapon;
-                    leftHandWeapon = null;
                     attackScript.leftDamage = attackScript.fistDamage;
+                    leftThrow = true;
                     GetComponent<Animator>().SetTrigger(PlayerAnimation.LEFT_THROW);
                 } else {
                     Drop(leftHandWeapon);
@@ -67,11 +91,9 @@ public class Pickup : MonoBehaviour {
         }
         if (Input.GetKey(KeyCode.Mouse1)) {
             if (rightHandWeapon == null) { return; }
-            if (startThrowHold + throwHoldTimer <= Time.time) {
+            if (startThrowHold + throwHoldTimer <= Time.time && !rightThrow) {
                 if (rightHandWeapon.GetComponent<WeaponHandler>().throwable) {
-                    throwHand = rightHand;
-                    throwWeapon = rightHandWeapon;
-                    rightHandWeapon = null;
+                    rightThrow = true;
                     attackScript.rightDamage = attackScript.fistDamage;
                     GetComponent<Animator>().SetTrigger(PlayerAnimation.RIGHT_THROW);
                 } else {
