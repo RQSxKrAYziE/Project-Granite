@@ -27,7 +27,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 0, y: 0, z: 1}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.011638294, y: -0.005479947, z: 0.0059138034}
+  m_ConnectedAnchor: {x: 0.011638257, y: -0.005479981, z: 0.0059138695}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 1, z: 0}
   m_TwistLimitSpring:
@@ -102,7 +102,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 0, y: 0, z: 1}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.0150961215, y: -0.000000007450581, z: -0.00000020605512}
+  m_ConnectedAnchor: {x: -0.015096094, y: -0.000000027939677, z: -0.000000010011718}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 1, z: 0}
   m_TwistLimitSpring:
@@ -247,6 +247,7 @@ MonoBehaviour:
   aiState: 0
   playerTarget: {fileID: 0}
   fist: {fileID: 1380313298}
+  damage: 10
 --- !u!114 &1203710346860518618
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -362,7 +363,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 0, y: 0, z: -1}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.020625096, y: 0.0041200733, z: 0}
+  m_ConnectedAnchor: {x: -0.02062509, y: 0.0041201054, z: 0.00000002188608}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 1, z: 0}
   m_TwistLimitSpring:
@@ -436,7 +437,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 0, y: 0, z: -1}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.0099762725, y: -0.0000001359731, z: 0}
+  m_ConnectedAnchor: {x: -0.009976237, y: 0.000000028871, z: 0.000000042375177}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 1, z: 0}
   m_TwistLimitSpring:
@@ -510,7 +511,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 0, y: 0, z: 1}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.011638265, y: -0.0054799407, z: -0.0059137437}
+  m_ConnectedAnchor: {x: 0.011638258, y: -0.0054799775, z: -0.0059137666}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 1, z: 0}
   m_TwistLimitSpring:
@@ -585,7 +586,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 0, y: 0, z: 1}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.01833024, y: -0.000000023865141, z: 0.0000000121071935}
+  m_ConnectedAnchor: {x: -0.018330213, y: -0.0000000017025741, z: -0.000000113621354}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 1, z: 0}
   m_TwistLimitSpring:
@@ -660,7 +661,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 0, y: 1, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.01201276, y: 0.0014149013, z: 0.01038645}
+  m_ConnectedAnchor: {x: -0.012012764, y: 0.0014148713, z: 0.010386428}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 0, z: 1}
   m_TwistLimitSpring:
@@ -735,7 +736,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 0, y: 1, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.010331145, y: 0.0011425823, z: -0.010386511}
+  m_ConnectedAnchor: {x: -0.010331139, y: 0.0011426123, z: -0.010386428}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 0, z: -1}
   m_TwistLimitSpring:
@@ -810,7 +811,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 0, y: 0, z: -1}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.015096123, y: 0.000000006519258, z: 0.00000020186417}
+  m_ConnectedAnchor: {x: -0.015096101, y: 0.000000027008355, z: 0.000000003259629}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 1, z: 0}
   m_TwistLimitSpring:
@@ -885,7 +886,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 0, y: 0, z: 1}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.01833023, y: -0.000000023952452, z: -0.000000017229468}
+  m_ConnectedAnchor: {x: -0.018330239, y: -0.000000010084477, z: 0.000000077765435}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 1, z: 0}
   m_TwistLimitSpring:
@@ -977,7 +978,7 @@ PrefabInstance:
     - target: {fileID: 5661571804739166048, guid: 5cff26a936275ff4f8e68d1e858f951b,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 5cff26a936275ff4f8e68d1e858f951b,
         type: 3}
